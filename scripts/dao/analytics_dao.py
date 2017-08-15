@@ -46,12 +46,11 @@ class AnalyticsDB:
                 event["event_receive_timestamp"],
                 event["event_timestamp"], event["google_aid"], event["ios_ifa"], event["ios_ifv"], event["mcc"],
                 event["mnc"], event["operator_name"], event["os_name"], event["os_version"]))
-
             self.connection.commit()
 
         except MySQLError as error:
             print(error)
-            print(event["android_id"], event["app_package_name"], event["app_version_name"])
+            print(event)
             self.connection.rollback()
 
     """ This method checks if there is data in the database"""
